@@ -17,4 +17,7 @@ npx tsc --init
 # run the code
 # Node.js v22.18.0 and later
 node ./day-1.ts
+
+# Check types
+npx tsc --noEmit
 ```
