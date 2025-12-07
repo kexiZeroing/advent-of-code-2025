@@ -4,9 +4,11 @@ async function part1() {
   const filePath = './day-2-input.txt';
   const fileContent = await readTextFile(filePath);
 
-  const ranges = fileContent.trim().split(',').map(r => {
-    return r.split('-').map(Number);
+  const ranges: Array<[number, number]> = fileContent.trim().split(',').map(r => {
+    const [a, b] = r.split('-').map(Number);
+    return [a, b] as [number, number];
   });
+
   // invalid ID is made only of some sequence of digits repeated twice
   const invalidIDs: number[] = [];
 
@@ -30,7 +32,8 @@ async function part2() {
   const fileContent = await readTextFile(filePath);
 
   const ranges = fileContent.trim().split(',').map(r => {
-    return r.split('-').map(Number);
+    const [a, b] = r.split('-').map(Number);
+    return [a, b] as [number, number];
   });
 
   // invalid ID is made only of some sequence of digits repeated at least twice
