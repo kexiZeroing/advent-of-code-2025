@@ -21,3 +21,7 @@ node ./day-1.ts
 # Check types
 npx tsc --noEmit
 ```
+
+Note that when you specify input files on the command line (like `npx tsc ./day-1.ts`), TypeScript ignores your `tsconfig.json` file entirely and uses default compiler options instead. To respect your `tsconfig.json` settings, either:
+- Run `npx tsc` without file arguments to compile all files in the project
+- Use `npx tsc ./day-1.ts --noEmit` to type-check a single file without emitting JS

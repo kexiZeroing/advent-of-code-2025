@@ -5,11 +5,11 @@ async function part1() {
   const fileContent = await readTextFile(filePath);
   const [ranges, list] = fileContent.trim().split('\n\n');
 
-  const freshRanges = ranges.split('\n').map(line => {
+  const freshRanges = ranges!.split('\n').map(line => {
     const [start, end] = line.split('-').map(Number);
     return [start, end] as [number, number];
   });
-  const ingredients = list.split('\n').map(line => Number(line));
+  const ingredients = list!.split('\n').map(line => Number(line));
 
   let count = 0;
   for (const ingredient of ingredients) {
@@ -33,7 +33,7 @@ async function part2() {
   const fileContent = await readTextFile(filePath);
   const [ranges, _] = fileContent.trim().split('\n\n');
 
-  const freshRanges = ranges.split('\n').map(line => {
+  const freshRanges = ranges!.split('\n').map(line => {
     const [start, end] = line.split('-').map(Number);
     return [start, end] as [number, number];
   });
@@ -43,8 +43,8 @@ async function part2() {
   freshRanges.sort((a, b) => a[0] - b[0]);
   let mergedRanges: [number, number][] = [];
   for (let i = 0; i < freshRanges.length - 1; i++) {
-    const cur = freshRanges[i];
-    const next = freshRanges[i + 1];
+    const cur = freshRanges[i] as [number, number];
+    const next = freshRanges[i + 1] as [number, number];
 
     if (cur[1] >= next[0]) {
       freshRanges[i] = undefined as any;
